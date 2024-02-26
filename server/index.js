@@ -41,8 +41,7 @@ app.use((req, res, next) => {
 
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
-    methods: ["POST", "GET", "DELETE", "PUT"],
+    origin: "http://localhost:5173",
     credentials: true
   })
 );
@@ -116,7 +115,11 @@ app.post("/login", (req, res) => {
             const token = jwt.sign({ name }, "jwt-secret-key", {
               expiresIn: "1d",
             });
-            res.cookie("token", token, { sameSite: 'none', secure: false });
+            res.cookie("token", token, { 
+              sameSite: 'none', 
+              httpOnly: true,
+              secure: true,
+            });
             return res.json({ Status: "Success" });
           } else {
             return res.json({ Error: "Password not matched" });
