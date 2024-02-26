@@ -29,19 +29,21 @@ const upload = multer({
   storage: storage,
 });
 
-// Set CORS headers
+app.use(express.json());
+
+
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Credentials", true);
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
 
-// Set CORS configuration
+
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173"],
     methods: ["POST", "GET", "DELETE", "PUT"],
-    credentials: true,
+    credentials: true
   })
 );
 
