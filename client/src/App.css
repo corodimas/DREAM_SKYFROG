@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Accent Graphic Medium';
+    src: url('path/to/font/Accent-Graphic-Medium.woff2') format('woff2'),
+         url('path/to/font/Accent-Graphic-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Accent Graphic Medium', sans-serif;
+}
