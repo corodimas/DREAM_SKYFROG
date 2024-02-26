@@ -41,7 +41,7 @@ app.use((req, res, next) => {
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "ephemeral-choux-101ef6.netlify.app",
     credentials: true
   })
 );
